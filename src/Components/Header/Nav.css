@@ -1,0 +1,48 @@
+nav{
+    border-bottom: 1px solid gainsboro;
+    padding: 15px 80px 15px 80px;
+}
+
+.logoAndSearch{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logoAndSearch h2{
+    font-style: italic;
+}
+.notifyAndProfile{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.publish{
+    display: flex;
+    gap: 80px;
+}
+
+input{
+    border: none;
+    padding: 10px 20px;
+    width: 250px;
+    border-radius: 20px;
+    background-color: gainsboro;
+}
+input:focus{
+    outline: none;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileimg img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+.publish button{
+    background-color: black;
+    color: white;
+}

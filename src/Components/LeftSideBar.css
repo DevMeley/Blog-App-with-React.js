@@ -1,0 +1,38 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.profileImage img{
+    width: 100px;
+    border-radius: 50px;
+    border: 2px solid gray;
+}
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+button{
+    width: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.others{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.others p{
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+a{
+    font-size: 14px;
+}

@@ -1,0 +1,9 @@
+.PostContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    gap: 30px;
+    margin-left: 400px;
+    margin-right: 400px;
+}

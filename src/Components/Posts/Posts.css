@@ -1,0 +1,62 @@
+
+.postDesc{
+    font-size: 14px;
+    color: #444;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+}
+.imageAndHeading img{
+    width: 150px;
+    height: 100px;
+}
+.imageAndHeading{
+    display: flex;
+    gap: 20px;
+}
+.imageAndHeading h2{
+    width: 400px;
+    font-size: 35px;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.topProfile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: lighter;
+    color: gray;
+    font-size: 14px;
+}
+
+.topProfile img{
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    border: 1px solid gray;
+}
+.iconPack{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 10px;
+}
