@@ -21,7 +21,7 @@ nav{
     gap: 80px;
 }
 
-input{
+.logoAndSearch input{
     border: none;
     padding: 10px 20px;
     width: 250px;

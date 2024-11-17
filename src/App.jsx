@@ -7,6 +7,10 @@ import Home from "./Pages/Home";
 import PostDetail from "./Pages/PostDetail";
 import NoPage from "./Pages/NoPage";
 import Nav from "./Components/Header/Nav";
+import Publish from "./Pages/Publish";
+
+
+
 library.add(fas, far, faTwitter, faFontAwesome);
 function App() {
   return (
@@ -17,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Post" element={<PostDetail />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/publish" element={<Publish />} />
         </Routes>
       </BrowserRouter>
     </div>

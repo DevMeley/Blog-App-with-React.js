@@ -6,4 +6,25 @@
     gap: 30px;
     margin-left: 400px;
     margin-right: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.iconAdd{
+    display: flex;
+    justify-content: space-between;
+}
+
+.PostContainer h2{
+    font-size: 30px;
+}
+
+.PostContainer p{
+    line-height: 28px;
+    font-size: 20px;
+    color: gray;
+}
+
+.img img{
+    width: 400px;
 }
