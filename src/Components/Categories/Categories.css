@@ -1,7 +1,13 @@
 .categories{
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     align-items: center;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.cats{
+    display: flex;
+    margin-left: 50px;
 }

@@ -3,11 +3,12 @@
     font-size: 14px;
     color: #444;
     line-height: 24px;
+    font-size: 18px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 
 }
 .imageAndHeading img{
@@ -30,6 +31,15 @@
     padding-bottom: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.link{
+    text-decoration: none;
 }
 
 .topProfile{

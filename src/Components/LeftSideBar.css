@@ -36,3 +36,7 @@ button{
 a{
     font-size: 14px;
 }
+.Link{
+    color: black;
+    text-decoration: none;
+}
