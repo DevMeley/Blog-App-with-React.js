@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import {far} from "@fortawesome/free-regular-svg-icons"
+import { far } from "@fortawesome/free-regular-svg-icons";
 import { faTwitter, faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 import Home from "./Pages/Home";
 import PostDetail from "./Pages/PostDetail";
@@ -14,12 +14,10 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Settings from "./Pages/Profile";
 
-
-
 library.add(fas, far, faTwitter, faFontAwesome);
 
 function App() {
-  return(
+  return (
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -30,7 +28,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
           <Route path="/publish" element={<Publish />} />
           <Route path="/Music" element={<Music />} />
-          <Route path="/account/settings" element={<Settings/>}/>
+          <Route path="/account/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </div>

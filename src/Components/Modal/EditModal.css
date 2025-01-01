@@ -1,28 +1,36 @@
-.modelOverlay{
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    background-color: rgba(107, 107, 107, 0.8);
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modelOverlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(107, 107, 107, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.modelContainer{
-    width: 500px;
-    height: 500px;
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+.modelContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
-.btns{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+.btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.cancelBtn {
+  border: 1px solid red;
+  color: red;
+}
+.saveBtn {
+  background-color: black;
+  color: white;
 }
