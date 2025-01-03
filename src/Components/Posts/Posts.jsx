@@ -14,7 +14,7 @@ export default function Posts({post, setPostId}) {
         </div>
 
         <div className="imageAndHeading">
-          <img src="Public\Images\ux.jpg" alt="" />
+          <img src={`http://localhost:2300${post.image}`} alt="" />
           <Link className={'link'} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
           </Link>

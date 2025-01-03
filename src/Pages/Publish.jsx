@@ -6,20 +6,30 @@ import { useNavigate } from "react-router-dom";
 export default function Publish() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [file, setFile] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const handlePost = async (e) => {
     e.preventDefault();
-    console.log(title, body, file);
-    const token = localStorage.getItem("jwtToken");
+    console.log(title, body, image)
+
+    const formData = new FormData()
+    formData.append("title", title)
+    formData.append("body", body)
+    
+    if (image) {
+      formData.append("image", image)
+    }
+
+    const token = localStorage.getItem("jwtToken")
     try {
       const res = await fetch("/api/publish/post", {
         method: "POST",
-        body: JSON.stringify({ title, body, file }),
+        body: formData,
+        // body: JSON.stringify({ title, body, photo }),
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
         },
       });
       const data = await res.json();
@@ -51,8 +61,7 @@ export default function Publish() {
           <input
             type="file"
             id="file"
-            value={file}
-            onChange={(e) => setFile(e.target.value)}
+            onChange={(e) => setImage(e.target.files[0])}
           />
           <button className="btn">Post</button>
         </form>
