@@ -12,7 +12,7 @@ export default function Posts({ post, setPostId }) {
           <p>{post.author}</p>
         </div>
         <div className="imageAndHeading">
-          <img src={`http://localhost:2300${post.image}`} alt="" />
+          <img src={`http://localhost:2300${post.image}`} alt="Post" />
           <Link className={"link"} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
           </Link>

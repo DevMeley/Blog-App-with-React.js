@@ -37,7 +37,7 @@ export default function LeftSideBar() {
         </div>
         <div className="profileInfo">
           <h3>{profile.username}</h3>
-          <a href={profile.email}>{profile.email}</a>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
         </div>
         <div className="others">
           <Link className="Link" to="/account/settings">
