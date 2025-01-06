@@ -43,6 +43,7 @@ export default function Publish() {
   return (
     <div>
       <div className="publishContainer">
+        {image && (<img src={URL.createObjectURL(image)}/>)}
         <form onSubmit={handlePost}>
           <input
             type="text"
