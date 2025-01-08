@@ -43,7 +43,6 @@ export default function Publish() {
   return (
     <div>
       <div className="publishContainer">
-        {image && (<img src={URL.createObjectURL(image)}/>)}
         <form onSubmit={handlePost}>
           <input
             type="text"
@@ -56,6 +55,7 @@ export default function Publish() {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           ></textarea>
+          {image && (<img className="imagePlaceholder" src={URL.createObjectURL(image)}/>)}
           <label htmlFor="file" className="custom-file-upload">
             <FontAwesomeIcon icon="fa-solid fa-image" />
           </label>

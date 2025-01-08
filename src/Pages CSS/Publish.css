@@ -54,3 +54,7 @@ textarea:focus{
     width: 45px;
     border-radius: 40px;
 }
+.imagePlaceholder{
+    width: 500px;
+    height: 200px;
+}
