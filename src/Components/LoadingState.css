@@ -1,0 +1,11 @@
+.heading{
+    background-color: rgb(216, 216, 216);
+    height: 50px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+.body{
+    background-color: rgb(216, 216, 216);
+    height: 100px;
+    width: 500px;
+}

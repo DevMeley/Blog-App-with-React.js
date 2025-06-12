@@ -7,7 +7,7 @@ import { useAuth } from "../AuthContext";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {setUser} = useAuth()
+  const {user, setUser} = useAuth()
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
@@ -30,7 +30,7 @@ export default function Login() {
 
       // store the token in local storage
       // localStorage.setItem("jwtToken", token);
-      setUser({ ...user, token });
+      setUser({...user,  token });
 
       // navigate
       navigate("/");

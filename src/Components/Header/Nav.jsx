@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useAuth } from "../../AuthContext";
 
-export default function Nav({ loggedIn }) {
-  const {setUser} = useAuth()
+export default function Nav() {
+  const {user} = useAuth()
   return (
     <div>
       <nav>
@@ -21,7 +21,7 @@ export default function Nav({ loggedIn }) {
             </form>
           </div>
           <div className="publish">
-            {loggedIn ? (
+            {user? (
               <div className="publish">
                 <Link to="/publish">
                   <button>

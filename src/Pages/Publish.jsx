@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../Pages CSS/Publish.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import withAuth from "../WithAuth";
+import { useAuth } from "../AuthContext";
 
-export default function Publish() {
+function Publish() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState(null);
@@ -21,7 +23,7 @@ export default function Publish() {
       formData.append("image", image)
     }
 
-    const token = localStorage.getItem("jwtToken")
+    const {token} = useAuth()
     try {
       const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/post", {
         method: "POST",
@@ -68,3 +70,6 @@ export default function Publish() {
     </div>
   );
 }
+
+
+export default withAuth(Publish)

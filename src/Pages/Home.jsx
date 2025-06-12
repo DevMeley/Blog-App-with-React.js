@@ -3,18 +3,19 @@ import LeftSideBar from '../Components/LeftSideBar'
 import MainContents from '../Components/Main/MainContents'
 import Nav from '../Components/Header/Nav'
 import '../Pages CSS/Home.css'
+import { useAuth } from '../AuthContext'
 
 
-export default function Home({ profile, loggedIn, setLoggedIn }) {
-
+export default function Home({profile}) {
+  const {user} = useAuth()
   return (
     <div>
-        <Nav loggedIn={loggedIn}/>
+        <Nav/>
         <div className='All'>
-            {loggedIn && profile?
+            {user?
               <div className="container">
                 <MainContents />
-                <LeftSideBar profile={profile} setLoggedIn={setLoggedIn}/> 
+                <LeftSideBar profile={profile}/> 
               </div>
               :
               <MainContents />

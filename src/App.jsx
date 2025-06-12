@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider, useAuth } from "./AuthContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
@@ -21,12 +21,15 @@ library.add(fas, far, faTwitter, faFontAwesome);
 
 function App() {
   const [profile, setProfile] = useState("");
-
+  const {token} = useAuth()
 
 
   useEffect(() => {
     const fetchprofile = async () => {
-   
+      if (!token) {
+        console.error("No token found!");
+  return;
+      }
       try {
         const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/account", {
           method: "GET",
@@ -42,12 +45,11 @@ function App() {
       }
     };
     fetchprofile();
-  }, [setProfile]);
+  }, [setProfile, token]);
 
 
   return (
     <div className="App">
-          <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/auth/register" element={<Register />} />
@@ -60,7 +62,6 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
-      </AuthProvider>
     </div>
   );
 }
