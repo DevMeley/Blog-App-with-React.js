@@ -9,7 +9,7 @@ export default function Posts({ post, setPostId }) {
       <div className="wrapper">
         <div className="topProfile">
           <img src="Public\Images\1647016869605.JPG" alt="" />
-          <p>{post.author}</p>
+          <Link className={"link"} to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
         <div className="imageAndHeading">
           <img src={`http://localhost:2300${post.image}`} alt="Post" />

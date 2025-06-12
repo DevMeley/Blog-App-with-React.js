@@ -13,7 +13,7 @@ export default function Login() {
     console.log(email, password);
 
     try {
-      const res = await fetch("/api/user/auth/login", {
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {

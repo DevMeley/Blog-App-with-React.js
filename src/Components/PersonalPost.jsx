@@ -8,7 +8,7 @@ export default function PersonalPost({ post }) {
       <div className="wrapper">
         <div className="topProfile">
           <img src="Public\Images\1647016869605.JPG" alt="" />
-          <p>{post.author}</p>
+          <Link to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
 
         <div className="imageAndHeading">

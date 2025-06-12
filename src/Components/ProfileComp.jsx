@@ -13,7 +13,7 @@ export default function ProfileComp() {
                     console.error("No token found, redirecting to login.");
                 }
             try {
-                const res = await fetch("/api/user/settings/account", {
+                const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/account", {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,

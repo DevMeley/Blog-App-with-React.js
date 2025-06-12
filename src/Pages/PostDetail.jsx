@@ -11,7 +11,7 @@ export default function Post() {
   useEffect(() => {
     const fetchpost = async () => {
       try {
-        const res = await fetch(`/api/publish/${id}`);
+        const res = await fetch(`https://my-blog-app-api.onrender.com/api/publish/${id}`);
         const data = await res.json();
         console.log(data.singlePost);
         setSinglePost(data.singlePost);
@@ -36,7 +36,7 @@ export default function Post() {
           <p>{singlePost.author}</p>
         </div>
         <img className="img" src="Public\Images\ux.jpg" alt="" />
-        <h2>{singlePost.title}</h2>
+        <h2>{singlePost?.title}</h2>
         <p>{singlePost.body}</p>
         <div className="iconAdd">
           <div className="icons">

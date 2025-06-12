@@ -23,7 +23,7 @@ export default function Publish() {
 
     const token = localStorage.getItem("jwtToken")
     try {
-      const res = await fetch("/api/publish/post", {
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/post", {
         method: "POST",
         body: formData,
         // body: JSON.stringify({ title, body, photo }),

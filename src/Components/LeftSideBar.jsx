@@ -1,34 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./LeftSideBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function LeftSideBar() {
-  const [profile, setProfile] = useState("");
+export default function LeftSideBar({ profile, setLoggedIn }) {
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    const fetchprofile = async () => {
-      const token = localStorage.getItem("jwtToken");
-      if (!token) {
-        console.error("No token found, redirecting to login.");
-      }
-      try {
-        const res = await fetch("/api/user/settings/account", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
-        console.log(data);
-        setProfile(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchprofile();
-  }, [setProfile]);
-
+  function handleLogout() {
+  localStorage.removeItem("token");
+  setLoggedIn(false);
+  navigate("/")
+}
   return (
     <div className="leftProfile">
       <div className="profile">
@@ -60,6 +42,7 @@ export default function LeftSideBar() {
             <FontAwesomeIcon icon="fa-solid fa-chart-simple" />
             Stat{" "}
           </p>
+          <p onClick={handleLogout}>Log Out</p>
         </div>
       </div>
     </div>

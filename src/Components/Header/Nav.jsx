@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-export default function Nav({ user }) {
+export default function Nav({ loggedIn }) {
   
   return (
     <div>
@@ -20,7 +20,7 @@ export default function Nav({ user }) {
             </form>
           </div>
           <div className="publish">
-            {user ? (
+            {loggedIn ? (
               <div className="publish">
                 <Link to="/publish">
                   <button>

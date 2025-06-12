@@ -12,7 +12,7 @@ export default function () {
     e.preventDefault();
     console.log(username, email, password);
     try {
-      const res = await fetch("/api/user/auth/register", {
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/auth/register", {
         method: "POST",
         body: JSON.stringify({ username, email, password }),
         headers: {

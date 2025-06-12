@@ -12,7 +12,7 @@ export default function MainContents() {
   useEffect(() => {
     const fetchposts = async () => {
         try {
-            const res = await fetch('/api/publish/all');
+            const res = await fetch('https://my-blog-app-api.onrender.com/api/publish/all');
             const data = await res.json();
             console.log(data.generalposts);
             setPosts(data.generalposts)

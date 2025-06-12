@@ -18,7 +18,7 @@ export default function Profile() {
         setUser(true);
       }
       try {
-        const res = await fetch("/api/publish/posts/all", {
+        const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/posts/all", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

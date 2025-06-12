@@ -5,24 +5,16 @@ import Nav from '../Components/Header/Nav'
 import '../Pages CSS/Home.css'
 
 
-export default function Home() {
- const [user, setUser] = useState(false)
+export default function Home({ profile, loggedIn, setLoggedIn }) {
 
-//  useEffect to validate token
- useEffect(()=>{
-  const token = localStorage.getItem('jwtToken');
-    if (token) {
-      setUser(true); // Assume the presence of a token means logged in
-    }
- },[])
   return (
     <div>
-        <Nav user={user}/>
+        <Nav loggedIn={loggedIn}/>
         <div className='All'>
-            {user?
+            {loggedIn && profile?
               <div className="container">
                 <MainContents />
-                <LeftSideBar /> 
+                <LeftSideBar profile={profile} setLoggedIn={setLoggedIn}/> 
               </div>
               :
               <MainContents />
