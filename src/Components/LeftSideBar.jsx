@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./LeftSideBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 export default function LeftSideBar({ profile, setLoggedIn }) {
+  const {setUser} = useAuth()
   const navigate = useNavigate()
 
   function handleLogout() {
-  localStorage.removeItem("token");
-  setLoggedIn(false);
+  // localStorage.removeItem("token");
+  setUser(null)
+  // setLoggedIn(false);
   navigate("/")
 }
   return (

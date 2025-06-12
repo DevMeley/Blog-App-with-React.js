@@ -4,19 +4,13 @@ import "../Pages CSS/Prodile.css";
 import Nav from "../Components/Header/Nav";
 import ProfileComp from "../Components/ProfileComp";
 import PersonalPost from "../Components/PersonalPost";
+import { useAuth } from "../AuthContext";
 
 export default function Profile() {
   const [personalPost, setPersonalPost] = useState([]);
-  const [user, setUser] = useState(false);
   useEffect(() => {
     const fetchPersonalPost = async () => {
-      const token = localStorage.getItem("jwtToken");
-      if (!token) {
-        console.error("No token found, redirecting to login.");
-      }
-      if (token) {
-        setUser(true);
-      }
+      
       try {
         const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/posts/all", {
           method: "GET",

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import { useAuth } from "../../AuthContext";
 
 export default function Nav({ loggedIn }) {
-  
+  const {setUser} = useAuth()
   return (
     <div>
       <nav>

@@ -26,10 +26,8 @@ export default function Publish() {
       const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/post", {
         method: "POST",
         body: formData,
-        // body: JSON.stringify({ title, body, photo }),
         headers: {
           Authorization: `Bearer ${token}`,
-          // "Content-Type": "application/json",
         },
       });
       const data = await res.json();

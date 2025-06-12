@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import "../Pages CSS/Register.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setUser} = useAuth()
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
@@ -27,7 +29,8 @@ export default function Login() {
       const token = data.token;
 
       // store the token in local storage
-      localStorage.setItem("jwtToken", token);
+      // localStorage.setItem("jwtToken", token);
+      setUser({ ...user, token });
 
       // navigate
       navigate("/");
