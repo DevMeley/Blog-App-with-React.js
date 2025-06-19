@@ -18,7 +18,7 @@ export default function Post() {
       } catch (error) {
         console.log(error);
       }
-    };
+    }; 
     {
       setIsLoading(false);
     }

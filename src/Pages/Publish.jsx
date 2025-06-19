@@ -10,6 +10,7 @@ function Publish() {
   const [body, setBody] = useState("");
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
+  const {token} = useAuth()
 
   const handlePost = async (e) => {
     e.preventDefault();
@@ -23,7 +24,6 @@ function Publish() {
       formData.append("image", image)
     }
 
-    const {token} = useAuth()
     try {
       const res = await fetch("https://my-blog-app-api.onrender.com/api/publish/post", {
         method: "POST",
@@ -72,4 +72,4 @@ function Publish() {
 }
 
 
-export default withAuth(Publish)
+export default Publish

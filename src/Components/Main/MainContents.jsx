@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import Posts from '../Posts/Posts'
-import Category from '../Categories/Category'
 import './MainContents.css'
 import LoadingState from '../LoadingState'
 

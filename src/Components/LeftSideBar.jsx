@@ -4,16 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 
-export default function LeftSideBar({ profile}) {
-  const {setUser} = useAuth()
-  const navigate = useNavigate()
+export default function LeftSideBar({ profile }) {
+  const { setUser } = useAuth();
+  const navigate = useNavigate();
 
   function handleLogout() {
-  // localStorage.removeItem("token");
-  setUser(null)
-  // setLoggedIn(false);
-  navigate("/")
-}
+    setUser(null);
+    localStorage.removeItem("token");
+    navigate("/");
+  }
   return (
     <div className="leftProfile">
       <div className="profile">

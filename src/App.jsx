@@ -24,29 +24,36 @@ function App() {
   const {token} = useAuth()
 
 
-  useEffect(() => {
-    const fetchprofile = async () => {
+ useEffect(() => {
+    const fetchProfile = async () => {
       if (!token) {
-        console.error("No token found!");
-  return;
+        console.log('No token available for API call');
+        return;
       }
+
       try {
         const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/account", {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`, // Use token from context
           },
         });
-        const data = await res.json();
-        console.log(data);
-        setProfile(data);
+        
+        if (res.ok) {
+          const data = await res.json();
+          console.log(data);
+          setProfile(data);
+        } else {
+          const errorData = await res.json();
+          console.error('API Error:', errorData);
+        }
       } catch (error) {
         console.log(error);
       }
     };
-    fetchprofile();
-  }, [setProfile, token]);
 
+    fetchProfile();
+  }, [token])
 
   return (
     <div className="App">

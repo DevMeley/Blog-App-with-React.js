@@ -29,7 +29,7 @@ export default function Login() {
       const token = data.token;
 
       // store the token in local storage
-      // localStorage.setItem("jwtToken", token);
+      localStorage.setItem("token", token);
       setUser({...user,  token });
 
       // navigate

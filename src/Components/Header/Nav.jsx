@@ -6,6 +6,8 @@ import { useAuth } from "../../AuthContext";
 
 export default function Nav() {
   const {user} = useAuth()
+  const {token} = useAuth()
+  
   return (
     <div>
       <nav>
@@ -21,7 +23,7 @@ export default function Nav() {
             </form>
           </div>
           <div className="publish">
-            {user? (
+            {token? (
               <div className="publish">
                 <Link to="/publish">
                   <button>
