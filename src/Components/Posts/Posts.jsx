@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 import "./Posts.css";
 
 export default function Posts({ post, setPostId }) {
+  const getImageSrc = (imagePath) => {
+    if (!imagePath) return "/images/placeholder.jpg";
+    
+    // If path already starts with /, use as is but encode spaces
+    if (imagePath.startsWith('/')) {
+      return encodeURI(imagePath);
+    }
+    
+    // Otherwise prepend /images/
+    return encodeURI(`/images/${imagePath}`);
+  };
   return (
     <div>
       <div className="wrapper">
@@ -12,7 +23,8 @@ export default function Posts({ post, setPostId }) {
           <Link className={"link"} to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
         <div className="imageAndHeading">
-          <img src={`http://localhost:2300${post.image}`} alt="Post" />
+          <img src={getImageSrc(post.image) || "Public\images\placeholder.jpg"} alt="Post" />
+          
           <Link className={"link"} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
           </Link>

@@ -9,7 +9,6 @@ export default function LeftSideBar({ profile }) {
   const navigate = useNavigate();
 
   function handleLogout() {
-    setUser(null);
     localStorage.removeItem("token");
     navigate("/");
   }
