@@ -19,11 +19,11 @@ export default function Posts({ post, setPostId }) {
     <div>
       <div className="wrapper">
         <div className="topProfile">
-          <img src="Public\Images\1647016869605.JPG" alt="" />
+          <img src="Public\images\1647016869605-2.JPG" alt="" />
           <Link className={"link"} to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
         <div className="imageAndHeading">
-          <img src={getImageSrc(post.image) || "Public\images\placeholder.jpg"} alt="Post" />
+          <img src={post.image || "Public\images\placeholder.jpg"} alt="Post" />
           
           <Link className={"link"} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
