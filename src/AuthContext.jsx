@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
     try {
       if (token) {
         localStorage.setItem('token', token);
+        setUser()
       } else {
         localStorage.removeItem('token');
       }

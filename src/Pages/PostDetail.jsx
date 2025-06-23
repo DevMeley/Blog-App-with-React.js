@@ -37,7 +37,7 @@ export default function Post() {
         </div>
         <img className="img" src="Public\Images\ux.jpg" alt="" />
         <h2>{singlePost?.title}</h2>
-        <img src={singlePost?.image} alt="" />
+        <img className="post-image" src={singlePost?.image} alt="" />
         <p>{singlePost.body}</p>
         <div className="iconAdd">
           <div className="icons">

@@ -10,6 +10,7 @@ export default function LeftSideBar({ profile }) {
 
   function handleLogout() {
     localStorage.removeItem("token");
+    setUser(null)
     navigate("/");
   }
   return (
