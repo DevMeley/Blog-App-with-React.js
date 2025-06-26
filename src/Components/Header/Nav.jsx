@@ -38,9 +38,11 @@ export default function Nav() {
                   <span>
                     <FontAwesomeIcon icon="fa-solid fa-bell" />
                   </span>
+                  <Link className="Link" to="/account/settings">
                   <div className="profileimg">
                     <img src="Public\Images\1647016869605.JPG" alt="" />
                   </div>
+                  </Link>
                 </div>
               </div>
             ) : (

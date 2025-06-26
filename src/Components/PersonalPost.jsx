@@ -12,7 +12,7 @@ export default function PersonalPost({ post }) {
         </div>
 
         <div className="imageAndHeading">
-          <img src="Public\Images\ux.jpg" alt="" />
+          <img src={post.image} alt="" />
           <Link className={"link"} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
           </Link>

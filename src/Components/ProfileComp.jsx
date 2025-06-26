@@ -38,10 +38,14 @@ export default function ProfileComp() {
   }, [setProfile]);
   return (
     <div>
+      <div className="p"></div>
       <div className="bodyContainer">
         <div className="profileInfo">
-          <h1>{profile.username}</h1>
-          <a href={profile.email}>{profile.email}</a>
+          <img src="" alt="profile Photo" />
+          <div className="profile-text">
+            <h1>{profile.username}</h1>
+            <a href={profile.email}>{profile.email}</a>
+          </div>
         </div>
         <button
           className="editModalBtn"

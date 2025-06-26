@@ -20,18 +20,18 @@ export default function Posts({ post, setPostId }) {
       <div className="wrapper">
         <div className="topProfile">
           <img src="Public\images\1647016869605-2.JPG" alt="" />
-          {/* <Link className={"link"} to={"/account/settings"}><p>{post.author}</p></Link> */}
           <p>{post.author}</p>
         </div>
         <div className="imageAndHeading">
-          <img src={post.image || "Public\images\placeholder.jpg"} alt="Post" />
-          
           <Link className={"link"} to={`/post/${post._id}`}>
             <h2>{post.title}</h2>
           </Link>
+          
         </div>
         <div className="contents">
           <p className="postDesc">{post.body}</p>
+          <img src={post.image || "Public\images\placeholder.jpg"} alt="Post"  className="post-img"/>
+        </div>
           <div className="icons">
             <p>{new Date(post.createdAt).toDateString()}</p>
             <div className="iconPack">
@@ -43,7 +43,6 @@ export default function Posts({ post, setPostId }) {
               <span>20</span>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

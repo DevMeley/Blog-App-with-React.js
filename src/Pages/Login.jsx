@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../Pages CSS/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
@@ -7,42 +6,65 @@ import { useAuth } from "../AuthContext";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {user, setUser} = useAuth()
+  const [error, setError] = useState("");
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+
+    
+    if (!email || !password) {
+      setError("Both email and password are required.");
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setError(""); 
 
     try {
-      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://my-blog-app-api.onrender.com/api/user/auth/login",
+        {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
-      console.log(data);
+      if (!res.ok) {
+        setError(data.message || "Login failed. Please try again.");
+        return;
+      }
 
-      // pick the token
+      
       const token = data.token;
 
-      // store the token in local storage
+      
       localStorage.setItem("token", token);
-      setUser({...user,  token });
+      setUser({ ...user, token });
 
       // navigate
       navigate("/");
     } catch (error) {
+      setError("An error occurred. Please try again.");
       console.log(error);
     }
   };
+
   return (
     <div className="background">
       <div className="signup-container">
         <h2>Log in</h2>
         <form onSubmit={handleLoginSubmit}>
+          
           <label>
             <p>Email</p>
             <input
@@ -54,11 +76,14 @@ export default function Login() {
           <label>
             <p>Password</p>
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
+          {error && (
+            <div style={{ color: "red", marginBottom: "10px", fontSize:"12px" }}>{error}</div>
+          )}
           <button type="submit" className="btn">
             Log in
           </button>

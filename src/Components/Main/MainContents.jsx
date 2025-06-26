@@ -27,7 +27,8 @@ export default function MainContents() {
   return (
     <div className='main'>
       {isLoading ? (
-        <LoadingState/>
+        // <LoadingState/>
+        <img src="Assets\spinner.gif" alt="" />
       ) : (
         <div className="post">
           {posts.map((post) => (

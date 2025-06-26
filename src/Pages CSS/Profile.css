@@ -2,6 +2,11 @@
   margin-left: 300px;
   margin-right: 300px;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 .links {
   display: flex;
@@ -17,6 +22,19 @@ hr {
   width: 500px;
   margin-bottom: 3cqb;
 }
-.profileInfo {
-  margin-bottom: 30px;
+/* .profileInfo {
+
+} */
+/* .profile-text{
+
+} */
+.p{
+  display: flex;
+  
+}
+.profileInfo img{
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
 }

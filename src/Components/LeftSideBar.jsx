@@ -8,11 +8,14 @@ export default function LeftSideBar({ profile }) {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
-  function handleLogout() {
-    localStorage.removeItem("token");
-    setUser(null)
-    navigate("/");
-  }
+  
+    function handleLogout() {
+      localStorage.removeItem("token");
+      setUser(null)
+      navigate("/");
+      window.location.reload()
+    }
+
   return (
     <div className="leftProfile">
       <div className="profile">

@@ -14,7 +14,7 @@ export default function Home({ profile }) {
         { token? (
           <div className="container">
             <MainContents />
-            <LeftSideBar profile={profile} />
+            {/* <LeftSideBar profile={profile} /> */}
           </div>
         ) : (
           <MainContents />

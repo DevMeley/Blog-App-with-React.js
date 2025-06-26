@@ -13,7 +13,7 @@ export default function EditModel({ setOpenModal }) {
       console.error("No token found, redirecting to login.");
     }
     try {
-      const res = await fetch("/api/user/settings/edit", {
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/edit", {
         method: "PUT",
         body: JSON.stringify({ username }),
         headers: {
