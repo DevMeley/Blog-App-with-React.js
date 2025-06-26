@@ -1,32 +1,35 @@
 import React, { useState } from "react";
 import "./EditModal.css";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
 
-export default function EditModel({ setOpenModal }) {
-  const [username, setUsername] = useState("");
+export default function EditModel({ setOpenModal, profilePhoto, setProfilePhoto }) {
   const navigate = useNavigate();
+  const {token} = useAuth()
 
   const editProfile = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("jwtToken");
-    if (!token) {
-      console.error("No token found, redirecting to login.");
+    
+    const formData = new FormData()
+    if (profilePhoto) {
+      formData.append("profilePhoto", profilePhoto)
     }
     try {
-      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/edit", {
-        method: "PUT",
-        body: JSON.stringify({ username }),
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/profilePhoto", {
+        method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
       const data = await res.json();
       console.log(data);
+      setProfilePhoto(data.url)
+      localStorage.setItem("profilePhoto", data.url);
       setOpenModal(false);
 
       // navigate to home after saved
-      navigate("/");
+      navigate("/account/settings");
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +43,8 @@ export default function EditModel({ setOpenModal }) {
             <label>
               <p>Username</p>
               <input
-                type="text"
-                onChange={(e) => setUsername(e.target.value)}
+                type="file"
+                onChange={(e) => setProfilePhoto(e.target.files[0])}
               />
             </label>
             <div className="btns">

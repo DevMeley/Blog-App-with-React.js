@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useAuth } from "../../AuthContext";
 
-export default function Nav() {
+export default function Nav({profilePhotoUrl}) {
   const {user} = useAuth()
   const {token} = useAuth()
   
@@ -40,7 +40,7 @@ export default function Nav() {
                   </span>
                   <Link className="Link" to="/account/settings">
                   <div className="profileimg">
-                    <img src="Public\Images\1647016869605.JPG" alt="" />
+                    <img src={profilePhotoUrl} alt="" />
                   </div>
                   </Link>
                 </div>

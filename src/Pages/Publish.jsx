@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../Pages CSS/Publish.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import withAuth from "../WithAuth";
 import { useAuth } from "../AuthContext";
 
 function Publish() {

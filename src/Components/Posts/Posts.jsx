@@ -3,23 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./Posts.css";
 
-export default function Posts({ post, setPostId }) {
-  const getImageSrc = (imagePath) => {
-    if (!imagePath) return "/images/placeholder.jpg";
-    
-    // If path already starts with /, use as is but encode spaces
-    if (imagePath.startsWith('/')) {
-      return encodeURI(imagePath);
-    }
-    
-    // Otherwise prepend /images/
-    return encodeURI(`/images/${imagePath}`);
-  };
+export default function Posts({ post, setPostId, }) {
+  
   return (
     <div>
       <div className="wrapper">
         <div className="topProfile">
-          <img src="Public\images\1647016869605-2.JPG" alt="" />
+          <img src={''} alt="" />
           <p>{post.author}</p>
         </div>
         <div className="imageAndHeading">

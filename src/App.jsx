@@ -23,6 +23,7 @@ function App() {
   const [profile, setProfile] = useState("");
   const {token} = useAuth()
 
+ const profilePhotoUrl = localStorage.getItem("profilePhoto");
 
  useEffect(() => {
     const fetchProfile = async () => {
@@ -43,6 +44,12 @@ function App() {
           const data = await res.json();
           console.log(data);
           setProfile(data);
+
+          if (profilePhotoUrl) {
+            data.profilePhoto = profilePhotoUrl;
+          }
+          setProfile(data);
+
         } else {
           const errorData = await res.json();
           console.error('API Error:', errorData);
@@ -53,6 +60,8 @@ function App() {
     };
 
     fetchProfile();
+
+    
   }, [token])
 
   return (
@@ -62,7 +71,7 @@ function App() {
         <Routes>
           <Route path="/auth/register" element={<Register />} />
           <Route path="/auth/login" element={<Login />} />
-          <Route path="/" element={<Home profile={profile} />} />
+          <Route path="/" element={<Home profile={profile}/>} />
           <Route path="/Post/:id" element={<PostDetail profile={profile}/>} />
           <Route path="/publish" element={<Publish profile={profile} />} />
           <Route path="/Music" element={<Music profile={profile} />} />

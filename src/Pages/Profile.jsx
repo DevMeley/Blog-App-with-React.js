@@ -6,7 +6,7 @@ import PersonalPost from "../Components/PersonalPost";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Profile() {
+export default function Profile({profilePhotoUrl}) {
   const [personalPost, setPersonalPost] = useState([]);
   const navigate = useNavigate();
   const { user } = useAuth();

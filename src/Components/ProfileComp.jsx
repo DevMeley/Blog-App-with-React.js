@@ -4,8 +4,9 @@ import EditModal from "./Modal/EditModal";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function ProfileComp() {
+export default function ProfileComp({profilePhotoUrl}) {
   const [profile, setProfile] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const { user } = useAuth();
   const { token } = useAuth();
@@ -38,10 +39,10 @@ export default function ProfileComp() {
   }, [setProfile]);
   return (
     <div>
-      <div className="p"></div>
-      <div className="bodyContainer">
-        <div className="profileInfo">
-          <img src="" alt="profile Photo" />
+      <div className="p">
+      <div className="bodyComp">
+        <div className="profile-Info">
+          <img src={profilePhotoUrl} alt="profile Photo" />
           <div className="profile-text">
             <h1>{profile.username}</h1>
             <a href={profile.email}>{profile.email}</a>
@@ -56,7 +57,14 @@ export default function ProfileComp() {
           Edit Profile
         </button>
       </div>
-      {openModal && <EditModal setOpenModal={setOpenModal} />}
+      </div>
+      {openModal && (
+        <EditModal
+          setOpenModal={setOpenModal}
+          profilePhoto={profilePhoto}
+          setProfilePhoto={setProfilePhoto}
+        />
+      )}
     </div>
   );
 }

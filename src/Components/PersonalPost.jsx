@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function PersonalPost({ post }) {
+export default function PersonalPost({ post, profilePhotoUrl }) {
   return (
     <div>
       <div className="wrapper">
         <div className="topProfile">
-          <img src="Public\Images\1647016869605.JPG" alt="" />
+          <img src={profilePhotoUrl} alt="" />
           <Link to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
 

@@ -5,7 +5,7 @@ import Nav from "../Components/Header/Nav";
 import "../Pages CSS/Home.css";
 import { useAuth } from "../AuthContext";
 
-export default function Home({ profile }) {
+export default function Home({ profile, profilePhotoUrl }) {
   const { token } = useAuth();
   return (
     <div>
@@ -13,11 +13,11 @@ export default function Home({ profile }) {
       <div className="All">
         { token? (
           <div className="container">
-            <MainContents />
+            <MainContents profilePhotoUrl={profilePhotoUrl}/>
             {/* <LeftSideBar profile={profile} /> */}
           </div>
         ) : (
-          <MainContents />
+          <MainContents profilePhotoUrl={profilePhotoUrl}/>
         )}
       </div>
     </div>
