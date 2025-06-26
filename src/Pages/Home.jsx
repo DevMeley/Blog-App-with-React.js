@@ -9,7 +9,7 @@ export default function Home({ profile }) {
   const { token } = useAuth();
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <div className="All">
         { token? (
           <div className="container">

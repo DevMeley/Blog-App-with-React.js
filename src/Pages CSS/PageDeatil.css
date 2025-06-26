@@ -2,12 +2,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: normal;
+    align-items: center;
     gap: 30px;
-    margin-left: 400px;
-    margin-right: 400px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    padding-top: 120px;
 }
 
 .iconAdd{
@@ -17,12 +15,14 @@
 
 .PostContainer h2{
     font-size: 30px;
+    width: 650px;
 }
 
 .PostContainer p{
     line-height: 28px;
     font-size: 20px;
     color: gray;
+    width: 650px;
 }
 
 .img img{
