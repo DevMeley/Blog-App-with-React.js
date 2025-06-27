@@ -14,6 +14,7 @@ export default function MainContents({profilePhotoUrl}) {
       try {
         const res = await fetch('https://my-blog-app-api.onrender.com/api/publish/all');
         const data = await res.json();
+        console.log(data.generalposts)
         setPosts(data.generalposts)
       } catch (error) {
         console.error("Fetch error:", error);
@@ -31,7 +32,7 @@ export default function MainContents({profilePhotoUrl}) {
       ) : (
         <div className="post">
           {posts.map((post) => (
-            <Posts key={post._id} post={post} profilePhotoUrl={profilePhotoUrl}/>
+            <Posts key={post._id} post={post} />
           ))}
         </div>
       )}

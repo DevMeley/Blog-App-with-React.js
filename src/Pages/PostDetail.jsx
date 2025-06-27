@@ -9,8 +9,8 @@ export default function Post() {
   const [singlePost, setSinglePost] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     const fetchpost = async () => {
-      setIsLoading(true);
       try {
         const res = await fetch(
           `https://my-blog-app-api.onrender.com/api/publish/${id}`

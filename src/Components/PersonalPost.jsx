@@ -7,10 +7,9 @@ export default function PersonalPost({ post, profilePhotoUrl }) {
     <div>
       <div className="wrapper">
         <div className="topProfile">
-          <img src={profilePhotoUrl} alt="" />
+          <img src={post.authorProfilePics} alt="" />
           <Link to={"/account/settings"}><p>{post.author}</p></Link>
         </div>
-
         <div className="imageAndHeading">
           <img src={post.image} alt="" />
           <Link className={"link"} to={`/post/${post._id}`}>

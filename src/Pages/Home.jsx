@@ -14,7 +14,7 @@ export default function Home({ profile, profilePhotoUrl }) {
         { token? (
           <div className="container">
             <MainContents profilePhotoUrl={profilePhotoUrl}/>
-            {/* <LeftSideBar profile={profile} /> */}
+            <LeftSideBar profile={profile} />
           </div>
         ) : (
           <MainContents profilePhotoUrl={profilePhotoUrl}/>

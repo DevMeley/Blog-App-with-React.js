@@ -28,8 +28,8 @@
     flex-direction: column;
     gap: 20px;
     border-bottom: 1px solid gainsboro;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
     cursor: pointer;
     width: 650px;
 }

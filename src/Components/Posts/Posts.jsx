@@ -9,7 +9,7 @@ export default function Posts({ post, setPostId, }) {
     <div>
       <div className="wrapper">
         <div className="topProfile">
-          <img src={''} alt="" />
+          <img src={post.authorProfilePics} alt="" />
           <p>{post.author}</p>
         </div>
         <div className="imageAndHeading">

@@ -6,13 +6,15 @@ import PersonalPost from "../Components/PersonalPost";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Profile({profilePhotoUrl}) {
+export default function Profile({ profilePhotoUrl }) {
   const [personalPost, setPersonalPost] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
-  const {token} = useAuth()
+  const { token } = useAuth();
 
   useEffect(() => {
+    setIsLoading(true);
     if (token) {
       const fetchPersonalPost = async () => {
         try {
@@ -30,6 +32,7 @@ export default function Profile({profilePhotoUrl}) {
         } catch (error) {
           console.log(error);
         }
+        setIsLoading(false);
       };
       fetchPersonalPost();
     } else {
@@ -41,15 +44,19 @@ export default function Profile({profilePhotoUrl}) {
     <div>
       <Nav />
       <ProfileComp />
-      <div className="bodyContainer">
-        <div className="links">
-          <p>My Posts</p>
+      {isLoading ? (
+        <img src="\Assets\spinner.gif" alt="" />
+      ) : (
+        <div className="bodyContainer">
+          <div className="links">
+            <p>My Posts</p>
+          </div>
+          <hr />
+          {personalPost.map((post) => (
+            <PersonalPost key={post._id} post={post} />
+          ))}
         </div>
-        <hr />
-        {personalPost.map((post) => (
-          <PersonalPost key={post._id} post={post} />
-        ))}
-      </div>
+      )}
     </div>
   );
 }

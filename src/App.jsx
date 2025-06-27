@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { AuthProvider, useAuth } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
@@ -14,7 +14,6 @@ import Music from "./Pages/Music";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Settings from "./Pages/Profile";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 library.add(fas, far, faTwitter, faFontAwesome);
@@ -23,7 +22,6 @@ function App() {
   const [profile, setProfile] = useState("");
   const {token} = useAuth()
 
- const profilePhotoUrl = localStorage.getItem("profilePhoto");
 
  useEffect(() => {
     const fetchProfile = async () => {
@@ -43,11 +41,6 @@ function App() {
         if (res.ok) {
           const data = await res.json();
           console.log(data);
-          setProfile(data);
-
-          if (profilePhotoUrl) {
-            data.profilePhoto = profilePhotoUrl;
-          }
           setProfile(data);
 
         } else {

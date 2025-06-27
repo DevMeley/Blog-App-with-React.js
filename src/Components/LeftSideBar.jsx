@@ -20,7 +20,7 @@ export default function LeftSideBar({ profile }) {
     <div className="leftProfile">
       <div className="profile">
         <div className="profileImage">
-          <img src="Public\images\1647016869605-2.JPG" alt="" />
+          <img src={profile.profilePics} alt="" />
         </div>
         <div className="profileInfo">
           <h3>{profile.username}</h3>

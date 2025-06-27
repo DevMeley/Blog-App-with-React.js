@@ -38,11 +38,11 @@ export default function Nav({profilePhotoUrl}) {
                   <span>
                     <FontAwesomeIcon icon="fa-solid fa-bell" />
                   </span>
-                  <Link className="Link" to="/account/settings">
+                  {/* <Link className="Link" to="/account/settings">
                   <div className="profileimg">
                     <img src={profilePhotoUrl} alt="" />
                   </div>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ) : (

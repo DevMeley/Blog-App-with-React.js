@@ -3,28 +3,26 @@ import "./EditModal.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 
-export default function EditModel({ setOpenModal, profilePhoto, setProfilePhoto }) {
+export default function EditUsernameModall({ setOpenEditModal, username, setUsername }) {
   const navigate = useNavigate();
   const {token} = useAuth()
 
-  const editProfile = async (e) => {
+  const editUsername = async (e) => {
     e.preventDefault();
     
-    const formData = new FormData()
-    if (profilePhoto) {
-      formData.append("profilePhoto", profilePhoto)
-    }
+    
     try {
-      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/uploadProfilePics", {
+      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/editUsername", {
         method: "PUT",
-        body: formData,
+        body: JSON.stringify({username}),
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
       });
       const data = await res.json();
       console.log(data);
-      setOpenModal(false);
+      setOpenEditModal(false);
 
       // navigate to home after saved
       navigate("/account/settings");
@@ -37,19 +35,20 @@ export default function EditModel({ setOpenModal, profilePhoto, setProfilePhoto 
       <div className="modelOverlay">
         <div className="modelContainer">
           <h2>Edit Profile Information</h2>
-          <form onSubmit={editProfile}>
+          <form onSubmit={editUsername}>
             <label>
               <p>Username</p>
               <input
-                type="file"
-                onChange={(e) => setProfilePhoto(e.target.files[0])}
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </label>
             <div className="btns">
               <button
                 className="cancelBtn"
                 onClick={() => {
-                  setOpenModal(false);
+                  setOpenEditModal(false);
                 }}
               >
                 Cancel
