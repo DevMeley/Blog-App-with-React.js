@@ -5,6 +5,7 @@ import EditUsernameModall from "./Modal/EditUsernameModall";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { FaUserEdit } from "react-icons/fa";
+import Spinner from "../assets/spinner.gif"
 
 export default function ProfileComp({ profilePhotoUrl }) {
   const [profile, setProfile] = useState("");
@@ -49,7 +50,7 @@ export default function ProfileComp({ profilePhotoUrl }) {
       <div className="p">
         <div className="bodyComp">
           {isLoading ? (
-             <img src="/spinner.gif" alt="" />
+             <img src={Spinner} alt="" />
           ) : (
             <div className="profile-Info">
               <img src={profile.profilePics} alt="profile Photo" />

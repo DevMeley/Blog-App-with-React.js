@@ -5,6 +5,7 @@ import ProfileComp from "../Components/ProfileComp";
 import PersonalPost from "../Components/PersonalPost";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../assets/spinner.gif"
 
 export default function Profile({ profilePhotoUrl }) {
   const [personalPost, setPersonalPost] = useState([]);
@@ -46,7 +47,7 @@ export default function Profile({ profilePhotoUrl }) {
       <div className="profile-body">
         <ProfileComp />
         {isLoading ? (
-           <img src="/spinner.gif" alt="" />
+           <img src={Spinner} alt="" />
         ) : (
           <div className="bodyContainer">
             <div className="links">

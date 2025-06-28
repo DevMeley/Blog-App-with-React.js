@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../Pages CSS/PageDeatil.css";
 import Nav from "../Components/Header/Nav";
+import Spinner from "../assets/spinner.gif"
 
 export default function Post() {
   const { id } = useParams();
@@ -31,7 +32,7 @@ export default function Post() {
     <div>
       <Nav />
       {isLoading ? (
-         <img src="/spinner.gif" alt="" />
+         <img src={Spinner} alt="" />
       ) : (
         <div className="PostContainer">
           <div className="topProfile">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Posts from '../Posts/Posts'
 import './MainContents.css'
 import LoadingState from '../LoadingState'
+import Spinner from "../../assets/spinner.gif"
 
 export default function MainContents({profilePhotoUrl}) {
   const [posts, setPosts] = useState([])
@@ -28,7 +29,7 @@ export default function MainContents({profilePhotoUrl}) {
   return (
     <div className='main'>
       {isLoading ? (
-        <img src="/spinner.gif" alt="" />
+        <img src={Spinner} alt="" />
       ) : (
         <div className="post">
           {posts.map((post) => (
