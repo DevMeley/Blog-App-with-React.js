@@ -1,9 +1,4 @@
 .publishContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: normal;
-    gap: 30px;
     margin-left: 400px;
     margin-right: 400px;
     margin-top: 50px;
@@ -57,4 +52,37 @@ textarea:focus{
 .imagePlaceholder{
     width: 500px;
     height: 200px;
+}
+.post-btns{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.cancel-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    color: red;
+    margin-left: 100px;
+    margin-top: 25px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+@media (max-width:500px) {
+    .publishContainer{
+        margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    }
+    .imagePlaceholder{
+        width: 250px;
+        height: 150px;
+    }
+  
+     .cancel-btn{
+        margin-left: 20px;
+     }
 }

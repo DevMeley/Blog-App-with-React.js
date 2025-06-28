@@ -44,7 +44,7 @@ export default function Post() {
           <p>{singlePost.body}</p>
           <div className="iconAdd">
             <div className="icons">
-              <span>{new Date(singlePost.createdAt).toDateString()}</span>
+              <span  className="date">{new Date(singlePost.createdAt).toDateString()}</span>
               <div className="iconPack">
                 <FontAwesomeIcon icon="fa-regular fa-heart" />
                 <span>20</span>

@@ -53,7 +53,7 @@ export default function Profile({ profilePhotoUrl }) {
             <div className="links">
               <p>My Posts</p>
             </div>
-            <hr />
+            <hr className="hr"/>
             {personalPost.map((post) => (
               <PersonalPost key={post._id} post={post} />
             ))}
