@@ -46,7 +46,7 @@ export default function Profile({ profilePhotoUrl }) {
       <div className="profile-body">
         <ProfileComp />
         {isLoading ? (
-          <img src="\Assets\spinner.gif" alt="" />
+          <img src="\assets\spinner.gif" alt="" />
         ) : (
           <div className="bodyContainer">
             <div className="links">

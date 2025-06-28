@@ -31,7 +31,7 @@ export default function Post() {
     <div>
       <Nav />
       {isLoading ? (
-        <img src="Assets\spinner.gif" alt="" />
+        <img src="assets\spinner.gif" alt="" />
       ) : (
         <div className="PostContainer">
           <div className="topProfile">

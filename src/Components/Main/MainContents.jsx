@@ -28,7 +28,7 @@ export default function MainContents({profilePhotoUrl}) {
   return (
     <div className='main'>
       {isLoading ? (
-        <img src="Assets\spinner.gif" alt="" />
+        <img src="assets\spinner.gif" alt="" />
       ) : (
         <div className="post">
           {posts.map((post) => (
