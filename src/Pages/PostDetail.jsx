@@ -32,14 +32,13 @@ export default function Post() {
     <div>
       <Nav />
       {isLoading ? (
-         <img src={Spinner} alt="" />
+         <img className="spinner" src={Spinner} alt="" />
       ) : (
         <div className="PostContainer">
           <div className="topProfile">
             <img src={singlePost.authorProfilePics} alt="" />
             <p>{singlePost.author}</p>
           </div>
-          <img className="img" src="Public\Images\ux.jpg" alt="" />
           <h2>{singlePost?.title}</h2>
           <img className="post-image" src={singlePost?.image} alt="" />
           <p>{singlePost.body}</p>

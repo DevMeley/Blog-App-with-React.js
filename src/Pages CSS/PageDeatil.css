@@ -7,6 +7,10 @@
     margin-bottom: 50px;
     padding-top: 120px;
 }
+.spinner{
+    margin-left: 550px;
+    margin-top: 200px;
+}
 
 .iconAdd{
     display: flex;
@@ -30,4 +34,26 @@
 }
 .post-image{
     height: 400px;
+}
+
+
+@media (max-width:500px) {
+    .PostContainer{
+        padding: 120 24px;
+    }
+    .PostContainer h2{
+        width: 350px;
+        font-size: 28px;
+    }
+    .PostContainer p{
+        width: 350px;
+        font-size: 16px;
+    }
+    .post-image{
+        width: 300px;
+        height: 300px;
+    }
+    .PostContainer .topProfile{
+        margin-left: 40px;
+    }
 }

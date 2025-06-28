@@ -36,6 +36,9 @@ nav{
     border-radius: 20px;
     background-color: gainsboro;
 }
+.search{
+    display: none;
+}
 input:focus{
     outline: none;
 }
@@ -43,6 +46,9 @@ input:focus{
 .nav{
     display: flex;
     justify-content: space-between;
+}
+.menu{
+    display: none;
 }
 
 .profileimg img{
@@ -54,4 +60,32 @@ input:focus{
     background-color: black;
     color: white;
     padding: 10px;
+}
+
+
+
+@media (max-width: 500px) {
+    nav{
+        padding: 12px 16px;
+    }
+    .logoAndSearch h2{
+        font-size: 16px;
+    }
+    .logoAndSearch input{
+        display: none;
+    }
+   
+    .notification{
+        display: none;
+    }
+    .publish{
+        gap: 8px;
+    }
+    .menu{
+        display: block;
+    }
+    .pen{
+        display: none;
+    }
+    
 }

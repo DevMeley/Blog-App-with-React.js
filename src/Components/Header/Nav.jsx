@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useAuth } from "../../AuthContext";
+import { FaSearch } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
+import { IoNotifications } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+import { FaPen } from "react-icons/fa6";
 
-export default function Nav({profilePhotoUrl}) {
-  const {user} = useAuth()
-  const {token} = useAuth()
-  
+export default function Nav({ openMenu, setOpenMenu }) {
+  const { token } = useAuth();
+
   return (
     <div>
       <nav>
         <div className="nav">
           <div className="logoAndSearch">
-            <Link className="logoAndSearch" to={"/"}><h2>ThinkBig</h2></Link>
+            <Link className="logoAndSearch" to={"/"}>
+              <h2>ThinkBig</h2>
+            </Link>
             <form>
               <input
                 type="text"
@@ -23,22 +28,31 @@ export default function Nav({profilePhotoUrl}) {
             </form>
           </div>
           <div className="publish">
-            {token? (
+            {token ? (
               <div className="publish">
                 <Link to="/publish">
                   <button>
-                    <FontAwesomeIcon
-                      icon="fa-solid fa-pen"
-                      style={{ paddingRight: "10px" }}
-                    />
+                    <FaPen className="pen" />
                     Post
                   </button>
                 </Link>
                 <div className="notifyAndProfile">
                   <span>
-                    <FontAwesomeIcon icon="fa-solid fa-bell" />
+                    <IoNotifications className="notification" />
                   </span>
-                  
+                  {openMenu ? (
+                    <IoClose
+                      className="menu"
+                      onClick={() => setOpenMenu(false)}
+                      title="Close menu"
+                    />
+                  ) : (
+                    <IoMenu
+                      className="menu"
+                      onClick={() => setOpenMenu(true)}
+                      title="Open menu"
+                    />
+                  )}
                 </div>
               </div>
             ) : (

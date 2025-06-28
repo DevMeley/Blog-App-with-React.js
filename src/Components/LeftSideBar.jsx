@@ -5,16 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import Spinner from "../assets/spinner.gif"
 
-export default function LeftSideBar({ profile, isLoading }) {
+export default function LeftSideBar({ profile, isLoading, handleLogout}) {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
-  function handleLogout() {
-    localStorage.removeItem("token");
-    setUser(null);
-    navigate("/");
-    window.location.reload();
-  }
 
   return (
     <div className="leftProfile">
