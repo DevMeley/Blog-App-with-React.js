@@ -3,6 +3,7 @@ import "./LeftSideBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import Spinner from "../assets/spinner.gif"
 
 export default function LeftSideBar({ profile, isLoading }) {
   const { setUser } = useAuth();
@@ -18,7 +19,7 @@ export default function LeftSideBar({ profile, isLoading }) {
   return (
     <div className="leftProfile">
       {isLoading ? (
-        <img src="\Assets\spinner.gif" />
+        <img src={Spinner} alt="" />
       ) : (
         <div className="profile">
           <div className="profileImage">
