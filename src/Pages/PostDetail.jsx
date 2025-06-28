@@ -29,12 +29,13 @@ export default function Post() {
 
   return (
     <div>
+      <Nav />
       {isLoading ? (
         <img src="Assets\spinner.gif" alt="" />
       ) : (
         <div className="PostContainer">
           <div className="topProfile">
-            <img src="Public\Images\1647016869605.JPG" alt="" />
+            <img src={singlePost.authorProfilePics} alt="" />
             <p>{singlePost.author}</p>
           </div>
           <img className="img" src="Public\Images\ux.jpg" alt="" />

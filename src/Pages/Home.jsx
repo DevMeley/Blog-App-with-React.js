@@ -5,16 +5,16 @@ import Nav from "../Components/Header/Nav";
 import "../Pages CSS/Home.css";
 import { useAuth } from "../AuthContext";
 
-export default function Home({ profile, profilePhotoUrl }) {
+export default function Home({ profile, profilePhotoUrl, isLoading }) {
   const { token } = useAuth();
   return (
     <div>
-      {/* <Nav /> */}
+      <Nav />
       <div className="All">
         { token? (
           <div className="container">
             <MainContents profilePhotoUrl={profilePhotoUrl}/>
-            <LeftSideBar profile={profile} />
+            <LeftSideBar profile={profile} isLoading={isLoading}/>
           </div>
         ) : (
           <MainContents profilePhotoUrl={profilePhotoUrl}/>

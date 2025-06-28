@@ -4,52 +4,55 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 
-export default function LeftSideBar({ profile }) {
+export default function LeftSideBar({ profile, isLoading }) {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
-  
-    function handleLogout() {
-      localStorage.removeItem("token");
-      setUser(null)
-      navigate("/");
-      window.location.reload()
-    }
+  function handleLogout() {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/");
+    window.location.reload();
+  }
 
   return (
     <div className="leftProfile">
-      <div className="profile">
-        <div className="profileImage">
-          <img src={profile.profilePics} alt="" />
-        </div>
-        <div className="profileInfo">
-          <h3>{profile.username}</h3>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </div>
-        <div className="others">
-          <Link className="Link" to="/account/settings">
+      {isLoading ? (
+        <img src="\Assets\spinner.gif" />
+      ) : (
+        <div className="profile">
+          <div className="profileImage">
+            <img src={profile.profilePics} alt="" />
+          </div>
+          <div className="profileInfo">
+            <h3>{profile.username}</h3>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </div>
+          <div className="others">
+            <Link className="Link" to="/account/settings">
+              <p>
+                <FontAwesomeIcon icon="fa-solid fa-gear" />
+                Profile
+              </p>
+            </Link>
             <p>
-              <FontAwesomeIcon icon="fa-solid fa-gear" />
-              Profile
+              {" "}
+              <FontAwesomeIcon icon="fa-solid fa-book" />
+              My writeup
             </p>
-          </Link>
-          <p>
-            {" "}
-            <FontAwesomeIcon icon="fa-solid fa-book" />
-            My writeup
-          </p>
-          <p>
-            {" "}
-            <FontAwesomeIcon icon="fa-solid fa-bookmark" />
-            Bookmark{" "}
-          </p>
-          <p>
-            <FontAwesomeIcon icon="fa-solid fa-chart-simple" />
-            Stat{" "}
-          </p>
-          <p onClick={handleLogout}>Log Out</p>
+            <p>
+              {" "}
+              <FontAwesomeIcon icon="fa-solid fa-bookmark" />
+              Bookmark{" "}
+            </p>
+            <p>
+              <FontAwesomeIcon icon="fa-solid fa-chart-simple" />
+              Stat{" "}
+            </p>
+            <p onClick={handleLogout}>Log Out</p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,23 +1,9 @@
-.bodyContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.p {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+
+
+ .profile-body{
+  margin-left: 250px;
   padding-top: 120px;
-}
-.bodyComp {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 50px;
-}
+ }
 .profile-Info {
   display: flex;
   gap: 50px;

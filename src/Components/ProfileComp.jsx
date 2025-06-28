@@ -46,11 +46,11 @@ export default function ProfileComp({ profilePhotoUrl }) {
   }, [setProfile]);
   return (
     <div>
-      {isLoading ? (
-        <img src="\Assets\spinner.gif" alt="" />
-      ) : (
-        <div className="p">
-          <div className="bodyComp">
+      <div className="p">
+        <div className="bodyComp">
+          {isLoading ? (
+            <img src="\Assets\spinner.gif" alt="" />
+          ) : (
             <div className="profile-Info">
               <img src={profile.profilePics} alt="profile Photo" />
               <button
@@ -76,9 +76,9 @@ export default function ProfileComp({ profilePhotoUrl }) {
                 <a href={profile.email}>{profile.email}</a>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
       {openModal && (
         <EditModal
           setOpenModal={setOpenModal}

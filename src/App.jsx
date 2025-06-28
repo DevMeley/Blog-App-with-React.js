@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, useNavigate, Link } from "react-router-do
 import { useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faL, fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { faTwitter, faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 import Home from "./Pages/Home";
@@ -20,11 +20,13 @@ library.add(fas, far, faTwitter, faFontAwesome);
 
 function App() {
   const [profile, setProfile] = useState("");
+  const [isLoading, setIsLoading] = useState(true)
   const {token} = useAuth()
 
 
  useEffect(() => {
     const fetchProfile = async () => {
+      setIsLoading(true)
       if (!token) {
         console.log('No token available for API call');
         return;
@@ -47,6 +49,7 @@ function App() {
           const errorData = await res.json();
           console.error('API Error:', errorData);
         }
+        setIsLoading(false)
       } catch (error) {
         console.log(error);
       }
@@ -60,11 +63,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Nav />
         <Routes>
           <Route path="/auth/register" element={<Register />} />
           <Route path="/auth/login" element={<Login />} />
-          <Route path="/" element={<Home profile={profile}/>} />
+          <Route path="/" element={<Home profile={profile} isLoading={isLoading}/>} />
           <Route path="/Post/:id" element={<PostDetail profile={profile}/>} />
           <Route path="/publish" element={<Publish profile={profile} />} />
           <Route path="/Music" element={<Music profile={profile} />} />

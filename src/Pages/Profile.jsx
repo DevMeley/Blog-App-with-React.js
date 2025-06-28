@@ -43,20 +43,22 @@ export default function Profile({ profilePhotoUrl }) {
   return (
     <div>
       <Nav />
-      <ProfileComp />
-      {isLoading ? (
-        <img src="\Assets\spinner.gif" alt="" />
-      ) : (
-        <div className="bodyContainer">
-          <div className="links">
-            <p>My Posts</p>
+      <div className="profile-body">
+        <ProfileComp />
+        {isLoading ? (
+          <img src="\Assets\spinner.gif" alt="" />
+        ) : (
+          <div className="bodyContainer">
+            <div className="links">
+              <p>My Posts</p>
+            </div>
+            <hr />
+            {personalPost.map((post) => (
+              <PersonalPost key={post._id} post={post} />
+            ))}
           </div>
-          <hr />
-          {personalPost.map((post) => (
-            <PersonalPost key={post._id} post={post} />
-          ))}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
