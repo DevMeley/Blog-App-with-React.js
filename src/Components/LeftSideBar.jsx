@@ -6,8 +6,6 @@ import { useAuth } from "../AuthContext";
 import Spinner from "../assets/spinner.gif"
 
 export default function LeftSideBar({ profile, isLoading, handleLogout}) {
-  const { setUser } = useAuth();
-  const navigate = useNavigate();
 
 
   return (

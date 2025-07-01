@@ -4,7 +4,7 @@ import MainContents from "../Components/Main/MainContents";
 import Nav from "../Components/Header/Nav";
 import "../Pages CSS/Home.css";
 import { useAuth } from "../AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
@@ -13,6 +13,9 @@ import { IoStatsChart } from "react-icons/io5";
 export default function Home({ profile, profilePhotoUrl, isLoading }) {
   const { token } = useAuth();
   const[openMenu, setOpenMenu] = useState(false)
+    const { setUser } = useAuth();
+  const navigate = useNavigate();
+
 
     const handleLogout = () =>{
       localStorage.removeItem("token");

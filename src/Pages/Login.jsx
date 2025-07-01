@@ -53,6 +53,7 @@ export default function Login() {
 
       // navigate
       navigate("/");
+      window.location.reload();
     } catch (error) {
       setError("An error occurred. Please try again.");
       console.log(error);
