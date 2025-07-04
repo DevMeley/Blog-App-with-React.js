@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../Pages CSS/Profile.css"
+import "../Pages CSS/Profile.css";
 
 export default function PersonalPost({ post, profilePhotoUrl }) {
   return (
@@ -9,7 +9,9 @@ export default function PersonalPost({ post, profilePhotoUrl }) {
       <div className="wrapper">
         <div className="topProfile">
           <img src={post.authorProfilePics} alt="" />
-          <Link to={"/account/settings"}><p>{post.author}</p></Link>
+          <Link to={"/account/settings"}>
+            <p>{post.author}</p>
+          </Link>
         </div>
         <div className="image-Heading">
           <img src={post.image} alt="" />

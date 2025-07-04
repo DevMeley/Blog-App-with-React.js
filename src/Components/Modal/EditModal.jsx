@@ -3,25 +3,32 @@ import "./EditModal.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 
-export default function EditModel({ setOpenModal, profilePhoto, setProfilePhoto }) {
+export default function EditModel({
+  setOpenModal,
+  profilePhoto,
+  setProfilePhoto,
+}) {
   const navigate = useNavigate();
-  const {token} = useAuth()
+  const { token } = useAuth();
 
   const editProfile = async (e) => {
     e.preventDefault();
-    
-    const formData = new FormData()
+
+    const formData = new FormData();
     if (profilePhoto) {
-      formData.append("profilePhoto", profilePhoto)
+      formData.append("profilePhoto", profilePhoto);
     }
     try {
-      const res = await fetch("https://my-blog-app-api.onrender.com/api/user/settings/uploadProfilePics", {
-        method: "PUT",
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        "https://my-blog-app-api.onrender.com/api/user/settings/uploadProfilePics",
+        {
+          method: "PUT",
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = await res.json();
       console.log(data);
       setOpenModal(false);

@@ -1,23 +1,26 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-import React from 'react'
+import React from "react";
 
-const AuthContext = createContext()
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-
- const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     try {
-      const storedToken = localStorage.getItem('token');
-      if (storedToken && storedToken !== 'undefined' && storedToken !== 'null') {
+      const storedToken = localStorage.getItem("token");
+      if (
+        storedToken &&
+        storedToken !== "undefined" &&
+        storedToken !== "null"
+      ) {
         setToken(storedToken);
       }
     } catch (error) {
-      console.error('Error loading token from localStorage:', error);
+      console.error("Error loading token from localStorage:", error);
     } finally {
       setIsLoading(false);
     }
@@ -26,13 +29,13 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     try {
       if (token) {
-        localStorage.setItem('token', token);
-        setUser()
+        localStorage.setItem("token", token);
+        setUser();
       } else {
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
       }
     } catch (error) {
-      console.error('Error saving token to localStorage:', error);
+      console.error("Error saving token to localStorage:", error);
     }
   }, [token]);
 
